@@ -41,7 +41,9 @@
                 .navbar .active {
                     background-color: red;
                 }
-                body {
-                    background-color: tan;
-                }
-                
+               body {
+                   background-color: tan;
+               }
+               hr {
+                   background-color: black;
+               }
