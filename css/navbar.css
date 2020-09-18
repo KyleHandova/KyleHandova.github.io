@@ -7,7 +7,7 @@
                 .navbar li {
                     list-style-type: none;
                     float: left;
-                    color: #FFFFFF;
+                    color: orange;
                 }
 
                 .navbar a {
@@ -31,7 +31,7 @@
 
 
                 .navbar li:hover {
-                    background-color: red;
+                    background-color: purple;
                 }
 
                 .dropdown:hover .dropdown-content {
@@ -39,10 +39,10 @@
                 }
 
                 .navbar .active {
-                    background-color: red;
+                    background-color: purple;
                 }
                body {
-                   background-color: tan;
+                   background: linear-gradient(to left, #996633 0%, #ff9933 100%);
                }
                hr {
                    background-color: black;
