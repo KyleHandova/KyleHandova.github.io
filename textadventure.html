@@ -20,6 +20,9 @@
             height: 100%;
             width: 56%;
             float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         #right_pane{
             background-color: blue;
@@ -32,7 +35,27 @@
             height: 80%;
         }
         #button_choices{
-            
+            background-color: pink;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #story_img{
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+        }
+        .buttons{
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 10px;
+            text-align: center;
         }
 
 
@@ -47,7 +70,7 @@
                 <li class="dropdown">
                     <a href="#">Projects</a>
                     <ul class="dropdown-content">
-                        <li><a href="textadventure.html">Text Adventure</a></li>
+                        <li class="active"><a href="textadventure.html">Text Adventure</a></li>
                         <li><a href="#">Project 2</a></li>
                         <li><a href="#">Project 3</a></li>
                         <li><a href="#">Project 4</a></li>
@@ -58,10 +81,21 @@
             </ul>
         
         <div id="container">
-            <div id="left_pane"></div>
+            <div id="left_pane">
+                <img id="story_img" src="images/test.png" />
+            
+            </div>
             <div id="right_pane">
                 <div id="story_text">
+                    <p>Welcome to my text adventure</p>
+                    <p>Thanks for playing</p>
+
+                </div>
                 <div id="button_choices">
+                    <a class="buttons" href="#">Glad to be here!</a>
+                    <a class="buttons" href="#">It as fun, thanks!</a>
+                
+                </div>
             </div>
         </div>
 
