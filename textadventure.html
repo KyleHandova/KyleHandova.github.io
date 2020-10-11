@@ -16,7 +16,7 @@
 
         }
         #left_pane{
-            background-color: white;
+            
             height: 100%;
             width: 56%;
             float: left;
@@ -25,17 +25,17 @@
             justify-content: center;
         }
         #right_pane{
-            background-color: white;
+            
             height: 100%;
             width: 44%;
             float: left;
         }
         #story_text{
-            background-color: white;
+            
             height: 80%;
         }
         #button_choices{
-            background-color: grey;
+           
             height: 20%;
             display: flex;
             align-items: center;
@@ -44,8 +44,8 @@
         #story_img{
             max-height: 100%;
             max-width: 100%;
-            width: auto;
-            height: auto;
+            width: 500px;
+            height: 500px;
         }
         .buttons{
             text-decoration: none;
@@ -56,6 +56,30 @@
             font-size: 16px;
             margin: 10px;
             text-align: center;
+        }
+        #p1{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 20px;
+            margin: 10px;
+        }
+        #p2{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 20px;
+            margin: 10px;
+        }
+        #p3{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 20px;
+            margin: 10px;
         }
        
 
@@ -83,18 +107,18 @@
         
         <div id="container">
             <div id="left_pane">
-                <img id="story_img" src="images/test.png" />
+                <img id="story_img" src="images/baseball.jpg" />
             
             </div>
             <div id="right_pane">
                 <div id="story_text">
-                    <p id="p1">Welcome to my text adventure</p>
-                    <p id="p2">Thanks for playing</p>
-
+                    <p id="p1">You are an ex-teammate of a five time MVP baseball player for the Cardinals named Freddy Alverez, and you have grown a hatred for him. You want to sabotage his MVP ceremony to get back at him.</p>
+                    <p id="p2">Would you like to continue your Adventure?</p>
+                    <p id="p3">#</p>
                 </div>
                 <div id="button_choices">
-                    <a id="b1" class="buttons" href="#" onclick="bclick(1)">Glad to be here!</a>
-                    <a id="b2" class="buttons" href="#" onclick="bclick(2)">It as fun, thanks!</a>
+                    <a id="b1" class="buttons" href="#" onclick="bclick(1)">Yes</a>
+                    <a id="b2" class="buttons" href="#" onclick="bclick(2)">No</a>
                     
                 
                 </div>
@@ -107,24 +131,51 @@
             var img = document.getElementById("story_img");
             var p1 = document.getElementById("p1");
             var p2 = document.getElementById("p2");
+            var p3 = document.getElementById("p3");
             var state = "intro";
             intro();
 
 
             function intro(){
+                img.src = "images/baseball.jpg";
+                b1.innerHTML = "Yes";
+                b2.innerHTML = "No";
+                p1.innerHTML = "You are an ex-teammate of a five time MVP baseball player for the Cardinals named Freddy Alverez, and you have grown a hatred for him. You want to sabotage his MVP ceremony to get back at him.";
+                p2.innerHTML = "Would you like to continue your Adventure?";
+                b2.style.display = "block";
+                p3.style.display = "none";
+            }
+            function yesContinue(){
                 img.src = "#";
-                b1.innerHTML = "#";
-                b2.innerHTML = "#";
-                p1.innerHTML = "#";
-                p2.innerHTML = "#";
+                b1.innerHTML = "Lock in Cage?";
+                b2.innerHTML = "Lock in Jail Cell?";
+                p1.innerHTML = "Great, Lets get started!";
+                p2.innerHTML = "So, more imformation about why you want to sabotage Freddy's ceremony. First off when he joined the team you lost a lot of your plaing time because he played the same position as you, but he was better!";
+                p3.innerHTML = "What should you do to sabotage his ceremony?";
+                p3.style.display = "block"
             }
-            function #(){
-                mg.src = "#";
-                b1.innerHTML = "#";
+            function noContinue(){
+                img.src = "images/theend.jpg";
+                b1.innerHTML = "Star Over?";
                 b2.innerHTML = "#";
-                p1.innerHTML = "#";
-                p2.innerHTML = "#";
+                p1.innerHTML = "I guess my adventure was not cool enough for you! :(";
+                p2.innerHTML = "Start Over to play again.";
+                b2.style.display = "none";
+                p3.style.display = "none";
+
             }
+            function cage(){
+                img.src = "#";
+                b1.innerHTML = "Start Over?";
+                b2.innerHTML = "#";
+                p1.innerHTML = "After you kidnapped him and locked him in a cage he wakes up to see that you never check his pockets, and all his stuff was still in his pockets. He gets his phone and calls his wife, Kaylee. She comes wiht some wire cutters and gets Freddy out before his ceremony.";
+                p2.innerHTML = "YOU FAILED!";
+                p3.innerHTML = "You failed at ruining Frddy's caree. He made it to his MVP ceremony."
+                b2.style.display = "none";
+                p3.style.display = "block";
+            }
+            function 
+            
 
 
 
@@ -133,14 +184,33 @@
             function bclick(button){
                 if (state == "intro"){
                     if(button == 1){
-                        #();
-                        state="#"
+                        yesContinue();
+                        state="yesContinue"
                     }
                     else if(button == 2){
-                        #();
-                        state="#";
+                        noContinue();
+                        state="noContinue";
                     }
                 }
+                else if(state == "noContinue"){
+                    if (button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }     
+                else if(state == "yesContinue"){
+                    if (button == 1){
+                        cage();
+                        state = "cage";
+                    }
+                }
+                else if(state == "cage"){
+                    if(button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                    
 
             }
                 
