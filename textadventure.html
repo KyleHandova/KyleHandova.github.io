@@ -88,12 +88,12 @@
 
     <body>
         <ul  class="navbar">
-                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="aboutme.html">About Me</a></li>
                 <li><a href="resume.html">Resume</a></li>
                 <li><a href="contactme.html">Contact Me</a></li>
                 <li class="dropdown">
-                    <a href="#">Projects</a>
+                    <a class="active" href="#">Projects</a>
                     <ul class="dropdown-content">
                         <li class="active"><a href="textadventure.html">Text Adventure</a></li>
                         <li><a href="#">Project 2</a></li>
@@ -146,13 +146,13 @@
                 p3.style.display = "none";
             }
             function yesContinue(){
-                img.src = "#";
+                img.src = "images/player.jpg";
                 b1.innerHTML = "Lock in Cage?";
                 b2.innerHTML = "Lock in Jail Cell?";
                 p1.innerHTML = "Great, Lets get started!";
                 p2.innerHTML = "So, more imformation about why you want to sabotage Freddy's ceremony. First off when he joined the team you lost a lot of your plaing time because he played the same position as you, but he was better!";
                 p3.innerHTML = "What should you do to sabotage his ceremony?";
-                p3.style.display = "block"
+                p3.style.display = "block";
             }
             function noContinue(){
                 img.src = "images/theend.jpg";
@@ -165,16 +165,49 @@
 
             }
             function cage(){
-                img.src = "#";
+                img.src = "images/cage.jpg";
                 b1.innerHTML = "Start Over?";
                 b2.innerHTML = "#";
-                p1.innerHTML = "After you kidnapped him and locked him in a cage he wakes up to see that you never check his pockets, and all his stuff was still in his pockets. He gets his phone and calls his wife, Kaylee. She comes wiht some wire cutters and gets Freddy out before his ceremony.";
+                p1.innerHTML = "After you kidnapped him and locked him in a cage he wakes up to see that you never check his pockets, and all his stuff was still in his pockets. He gets his phone and calls his wife, Kaylee. She comes with some wire cutters and gets Freddy out before his ceremony.";
                 p2.innerHTML = "YOU FAILED!";
-                p3.innerHTML = "You failed at ruining Frddy's caree. He made it to his MVP ceremony."
+                p3.innerHTML = "You failed at ruining Frddy's career. He made it to his MVP ceremony."
                 b2.style.display = "none";
                 p3.style.display = "block";
             }
-            function 
+            function jailCell(){
+                img.src = "images/jailCell.jpg";
+                b1.innerHTML = "Go To Ceremony";
+                b2.innerHTML = "Tease Freddy";
+                p1.innerHTML = "After you kidnapped him and put him in a jail cell, he wakes up to see that you have taken all the items out of his pockets. He feels hopeless.";
+                p2.innerHTML = "Now that you have Freddy trapped in a jail cell, what do you want to do now?";
+                p3.innerHTML = "#";
+                b2.style.display = "block";
+                p3.style.display = "none";
+
+            }
+            function ceremony(){
+                img.src = "images/youwin.jpg";
+                b1.innerHTML = "Start Over!";
+                b2.innerHTML = "#";
+                p1.innerHTML = "You end up going to the ceremony and telling the league director that Freddy could not make it to the ceremony because of a family issue. You successfully trapped Freddy so he could not accept the MVP reward!";
+                p2.innerHTML = "YOU WIN! Start over to play again.";
+                p3.innerHTML = "#";
+                b2.style.display = "none";
+                p3.style.display = "none";
+
+            }
+            function tease(){
+                img.src = "images/failed.jpg";
+                b1.innerHTML = "Start Over!";
+                b2.innerHTML = "#";
+                p1.innerHTML = "You thought it would be funny if you teased Freddy for all the bad stuff he had done to you.";
+                p2.innerHTML = "Although, as you were messing with Freddy his wife come with a rock and knocks you out and saves Freddy.";
+                p3.innerHTML = "YOU FAILED! Start Over to play again.";
+                b2.style.display = "none";
+                p3.style.display = "block";
+
+            }
+            
             
 
 
@@ -203,6 +236,10 @@
                         cage();
                         state = "cage";
                     }
+                    else if(button == 2){
+                        jailCell();
+                        state= "jailCell"
+                    }
                 }
                 else if(state == "cage"){
                     if(button == 1){
@@ -210,6 +247,29 @@
                         state = "intro";
                     }
                 }
+                else if(state == "jailCell"){
+                    if(button == 1){
+                        ceremony();
+                        state = "ceremony";
+                    }
+                    else if(button == 2){
+                        tease();
+                        state = "tease";
+                    }
+                }
+                else if(state == "ceremony"){
+                    if(button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                else if(state == "tease"){
+                    if(button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                
                     
 
             }
