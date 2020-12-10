@@ -16,7 +16,7 @@
                 color: white;
             }
             body {
-                background-color:#262626
+                background-color:white;
             }
             a { 
                 color: red;
@@ -30,8 +30,4 @@
             .dark {
                 background-color: tan;
                 color: white;
-            }
-            
-            body {
-                background-color: tan;
             }
